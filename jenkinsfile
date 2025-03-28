@@ -7,12 +7,6 @@ pipeline{
 
     stages{
 
-        stage('Git checkout code'){
-            steps{
-                git url: 'https://github.com/manit101/DevopsWorkshopPractice.git', branch: 'main'
-            }
-        }
-
         stage('Build'){
             steps{
                 sh 'mvn clean package'
