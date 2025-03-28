@@ -18,10 +18,12 @@ pipeline{
             }
         }
         stage('Run JAR'){
-            script {
-                def output = sh(script: 'java -jar target/simple-java-project-1.0-SNAPSHOT.jar', returnStdout: true).trim()
+            steps{
+                script {
+                    def output = sh(script: 'java -jar target/simple-java-project-1.0-SNAPSHOT.jar', returnStdout: true).trim()
 
-                echo "print output from JAR: ${output}"
+                    echo "print output from JAR: ${output}"
+                }
             }
         }
     }
