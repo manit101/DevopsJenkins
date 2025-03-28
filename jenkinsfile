@@ -15,17 +15,12 @@ pipeline{
 
         stage('Build'){
             steps{
-                echo 'Building the project...'
+                sh 'mvn clean package'
             }
         }
         stage('Test'){
             steps{
-                echo 'Testing the project...'
-            }
-        }
-        stage('Deploy'){
-            steps{
-                echo 'Deploying the project...'
+                sh 'mvn test'
             }
         }
     }
