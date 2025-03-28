@@ -1,17 +1,31 @@
-pipeline {
+pipeline{
     agent any
+
     tools {
-        maven 'maven'  // Use the exact name you set in Global Tool Configuration
+        maven 'maven'
     }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
+
+    stages{
+
+        stage('Git checkout code'){
+            steps{
+                git url: 'https://github.com/manit101/DevopsWorkshopPractice.git', branch: 'main'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
+
+        stage('Build'){
+            steps{
+                echo 'Building the project...'
+            }
+        }
+        stage('Test'){
+            steps{
+                echo 'Testing the project...'
+            }
+        }
+        stage('Deploy'){
+            steps{
+                echo 'Deploying the project...'
             }
         }
     }
